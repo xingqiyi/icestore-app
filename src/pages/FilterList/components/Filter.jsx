@@ -1,30 +1,32 @@
 import React from 'react'
 import { Form, Input } from '@alifd/next';
 
+import stores from '../../../stores'
+
+
 
 const FormItem = Form.Item;
 
-function handleSubmit(v) {
-    console.log(v);
-}
+
 
 const Filter = () => {
 
+    const list = stores.useStore('list')
+
+    function handleSubmit(v) {
+        console.log(v);
+        list.pageTo(5)
+
+    }
 
     return (
         <div>
 
             <Form inline>
-                <FormItem label="Username:">
-                    <FormItem >
-                        <Input name="first" style={{ width: 80 }} placeholder="first" />
-                    </FormItem>
-                    <FormItem >
-                        <Input name="second" style={{ width: 80 }} placeholder="second" />
-                    </FormItem>
-                </FormItem>
+
+
                 <FormItem label="Password:" required hasFeedback={false}>
-                    <Input htmlType="password" name="inlinePass" placeholder="Please enter your password!" />
+                    <Input name="inlinePass" placeholder="Please enter your password!" />
                 </FormItem>
 
                 <FormItem label=" ">
