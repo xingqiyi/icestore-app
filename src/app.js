@@ -4,12 +4,14 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import logo from './logo.svg'
 import './App.css'
 
-import DataFetch from './components/DataFetch'
-import CustomDataFetch from './components/CustomDataFetch'
-import ReducerDataFetch from './components/ReducerDataFetch'
-import TableList from './components/TableList'
+import DataFetch from './pages/DataFetch'
+import CustomDataFetch from './pages/CustomDataFetch'
+import ReducerDataFetch from './pages/ReducerDataFetch'
+import TableList from './pages/TableList'
 
-import Todo from './components/Todo'
+import Todo from './pages/Todo'
+
+import FilterList from './pages/FilterList'
 
 const PrimaryLayout = () => (
   <div className="primary-layout">
@@ -37,10 +39,15 @@ const PrimaryLayout = () => (
           <Link to='/list'>TableList</Link>
         </span>
 
-
         <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
           <Link to='/todo'>icestore</Link>
         </span>
+
+        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
+          <Link to='/tablelist'>list</Link>
+        </span>
+
+
       </div>
 
     </header>
@@ -52,8 +59,8 @@ const PrimaryLayout = () => (
       <Route path='/c' component={ReducerDataFetch} />
 
       <Route path='/list' component={TableList} />
-
       <Route path='/todo' component={Todo} />
+      <Route path='/tablelist' component={FilterList} />
 
     </main>
   </div>
