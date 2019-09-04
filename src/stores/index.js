@@ -13,7 +13,6 @@ import logger from '@ice/store-logger';
 // icestore.registerStore('list', list);
 
 
-
 const stores = {
   todos,
   list,
@@ -24,17 +23,12 @@ const stores = {
 const icestore = new Icestore();
 
 
-
 const middlewares = [];
 // Turn off logger middleware in production enviroment
 if (process.env.NODE_ENV !== 'production') {
   middlewares.push(logger);
 }
 icestore.applyMiddleware(middlewares);
-
-
-
-
 
 
 Object.keys(stores).forEach(key => icestore.registerStore(key, stores[key]));

@@ -918,6 +918,16 @@
     lodash.isfunction "^3.0.9"
     lodash.isobject "^3.0.2"
 
+"@ice/store@^0.3.0":
+  version "0.3.0"
+  resolved "http://r.cnpmjs.org/@ice/store/download/@ice/store-0.3.0.tgz#af6bb1f00b6d3df99c2652c7717ec442d43ca0a7"
+  integrity sha1-r2ux8AttPfmcJlLHcX7EQtQ8oKc=
+  dependencies:
+    is-promise "^2.1.0"
+    lodash.foreach "^4.5.0"
+    lodash.isfunction "^3.0.9"
+    lodash.isobject "^3.0.2"
+
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.npm.taobao.org/@jest/console/download/@jest/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"
@@ -5021,13 +5031,6 @@ hyphenate-style-name@^1.0.3:
   version "1.0.3"
   resolved "http://r.cnpmjs.org/hyphenate-style-name/download/hyphenate-style-name-1.0.3.tgz#097bb7fa0b8f1a9cf0bd5c734cf95899981a9b48"
   integrity sha1-CXu3+guPGpzwvVxzTPlYmZgam0g=
-
-icestore@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.npm.taobao.org/icestore/download/icestore-0.1.2.tgz#07eaa77ae43bbcac8838002638b9582d80da7724"
-  integrity sha1-B+qneuQ7vKyIOAAmOLlYLYDadyQ=
-  dependencies:
-    lodash.isfunction "^3.0.9"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"
