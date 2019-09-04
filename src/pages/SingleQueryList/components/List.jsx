@@ -120,7 +120,7 @@ export default function CustomPaginationActionsTable() {
 
   const list = stores.useStore('list')
 
-  const {rows: dataSource, loading} = list
+  const {dataSource: rows, loading} = list
 
 
   React.useEffect(() => {
@@ -148,12 +148,14 @@ export default function CustomPaginationActionsTable() {
           <Table className={classes.table}>
             <TableBody>
               {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
-                  <TableRow key={row.name}>
+
+                  <TableRow key={row.id}>
+
                     <TableCell component="th" scope="row">
-                      {row.name}
+                      {row.id}
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
+                    <TableCell align="right">{row.title.name}</TableCell>
+                    <TableCell align="right">{row.time}</TableCell>
                   </TableRow>
               ))}
 
@@ -172,7 +174,7 @@ export default function CustomPaginationActionsTable() {
                     rowsPerPage={rowsPerPage}
                     page={page}
                     SelectProps={{
-                      inputProps: {'aria-label': 'rows per page'},
+                      inputProps: {'aria-label': '每页行数'},
                       native: true,
                     }}
                     onChangePage={handleChangePage}
