@@ -15,6 +15,7 @@ import ReducerDataFetch from "../../pages/ReducerDataFetch";
 import TableList from "../../pages/TableList";
 import Todo from "../../pages/Todo";
 import FilterList from "../../pages/FilterList";
+import SingleQueryList from "../../pages/SingleQueryList";
 
 
 const useStyles = makeStyles({
@@ -50,11 +51,11 @@ export default function CenteredTabs({match}) {
   }
 
   const CollisionLink = React.forwardRef((props, ref) => (
-      <Link innerRef={ref} to='/admin/a'  {...props} />
+      <Link innerRef={ref} to='/admin/singlequery'  {...props} />
   ));
 
   const CollisionLink2 = React.forwardRef((props, ref) => (
-      <Link innerRef={ref} to='/admin/b'  {...props} />
+      <Link innerRef={ref} to='/admin/multiquery'  {...props} />
   ));
   const CollisionLink3 = React.forwardRef((props, ref) => (
       <Link innerRef={ref} to="/admin/todo" {...props} />
@@ -108,14 +109,16 @@ export default function CenteredTabs({match}) {
 
           {/* 添加 exact 属性，否则 / 会被 /users 或者 /users/add */}
 
-          <Route path='/admin/' exact component={DataFetch}/>
+          <Route path='/admin/' exact component={SingleQueryList}/>
 
           <Route exact path="/admin" render={() => (
-              <Redirect to="/admin/a"/>
+              <Redirect to="/admin/singlequery"/>
           )}/>
 
-          <Route path='/admin/a' exact component={DataFetch}/>
-          <Route path="/admin/b" component={CustomDataFetch}/>
+          <Route path='/admin/singlequery' exact component={SingleQueryList}/>
+
+          <Route path="/admin/multiquery" component={CustomDataFetch}/>
+
           <Route path='/admin/c' component={ReducerDataFetch}/>
           <Route path='/admin/list' component={TableList}/>
           <Route path='/admin/todo' component={Todo}/>

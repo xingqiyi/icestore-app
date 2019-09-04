@@ -64,7 +64,7 @@ const Login = (props) => {
 
     const isL = login(islog => {
 
-      islog && props.history.push('/admin/a')
+      islog && props.history.push('/admin/singlequery')
 
     });
 
