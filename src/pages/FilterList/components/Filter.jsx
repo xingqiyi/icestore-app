@@ -1,6 +1,8 @@
 import React from 'react'
 import { Form, Input } from '@alifd/next';
 
+import Button from '@material-ui/core/Button';
+
 import stores from '../../../stores'
 
 
@@ -30,8 +32,14 @@ const Filter = () => {
                 </FormItem>
 
                 <FormItem label=" ">
-                    <Form.Submit onClick={handleSubmit}>Submit</Form.Submit>
+
+                    <Button onClick={handleSubmit} variant="contained" color="primary">
+                        查询
+              </Button>
                 </FormItem>
+
+
+
             </Form>
 
 

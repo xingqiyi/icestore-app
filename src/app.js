@@ -1,83 +1,69 @@
 import React from 'react'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
-// import { Router, Route, Link } from 'react-router'
-import logo from './logo.svg'
-import './App.css'
+import {BrowserRouter as Router, Switch, Route, Redirect, Link} from 'react-router-dom'
+// import {HashRouter as Router, Route, Link} from 'react-router-dom'
 
-import DataFetch from './pages/DataFetch'
-import CustomDataFetch from './pages/CustomDataFetch'
-import ReducerDataFetch from './pages/ReducerDataFetch'
-import TableList from './pages/TableList'
+import MainLayout from './layouts/MainLayout/index';
 
-import Todo from './pages/Todo'
+import Login from './pages/Login'
+import './app.css'
 
-import FilterList from './pages/FilterList'
-
-const PrimaryLayout = () => (
-  <div className="primary-layout">
-    <header>
-      fetch data by React Hook
-      <div style={{
-        display: 'flex',
-        width: '500px',
-        justifyContent: 'space-around',
-
-        margin: '20px'
-      }}>
-
-        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
-          <Link to='/a'>Fetch by Hook</Link>
-        </span>
-        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
-          <Link to='/b'>自定义Hook</Link>
-        </span>
-        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
-          <Link to='/c'>useReduce</Link>
-        </span>
-
-        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
-          <Link to='/list'>TableList</Link>
-        </span>
-
-        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
-          <Link to='/todo'>icestore</Link>
-        </span>
-
-        <span style={{ boxShadow: '#58a 0px 0px 6px 3px', }}>
-          <Link to='/tablelist'>list</Link>
-        </span>
+import stores from './stores'
+import {createBrowserHistory} from 'history';
 
 
-      </div>
-
-    </header>
-    <main>
-      {/* 添加 exact 属性，否则 / 会被 /users 或者 /users/add */}
-      <Route path="/" exact component={DataFetch} />
-      <Route path="/a" exact component={DataFetch} />
-      <Route path="/b" component={CustomDataFetch} />
-      <Route path='/c' component={ReducerDataFetch} />
-
-      <Route path='/list' component={TableList} />
-      <Route path='/todo' component={Todo} />
-      <Route path='/tablelist' component={FilterList} />
-
-    </main>
-  </div>
-)
+const loggedIn = true;
 
 function App() {
+  const customHistory = createBrowserHistory();
+
+  const user = stores.useStore('user')
+  const {isLogin} = user;
+
   // return (
-  //   <div className="App">
-  //     <ReducerDataFetch></ReducerDataFetch>
-  //   </div>
-  // );
+  //     <Router>
+  //
+  //       <Route exact path="/" render={() => (
+  //           loggedIn ? (
+  //
+  //               <Redirect to="/admin"/>
+  //
+  //
+  //           ) : (
+  //               <Login/>
+  //           )
+  //       )}/>
+  //
+  //
+  //       <Route path="/admin" component={MainLayout}/>
+  //
+  //       <Route path="/login" component={Login}/>
+  //
+  //     </Router>
+  // )
 
   return (
-    <BrowserRouter>
-      <PrimaryLayout />
-    </BrowserRouter>
+      <Router history={customHistory}>
+
+        <Route exact path="/" render={() => (
+            <Redirect to="/admin"/>
+        )}/>
+
+        <Route path="/admin" render={() => (
+            !isLogin ? (
+                <Redirect to="/login"/>
+            ) : (
+                <MainLayout/>
+            )
+        )}/>
+
+        {/*<Route path="/admin" component={MainLayout}/>*/}
+
+        <Route path="/login" component={Login}/>
+
+      </Router>
   )
+
+
 }
 
 export default App

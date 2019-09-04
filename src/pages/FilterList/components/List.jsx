@@ -13,11 +13,14 @@ const render = (value, index, record) => {
 const List = () => {
 
     const list = stores.useStore('list')
+
     const { dataSource, loading } = list
+
 
     React.useEffect(() => {
         list.init();
     }, []);
+
 
     function onChange(currentPage) {
         list.pageTo(currentPage)
