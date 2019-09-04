@@ -1,5 +1,5 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function MenuAppBar() {
   const user = stores.useStore('user')
-  const {isLogin, logout} = user;
+  const { logout } = user;
 
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
@@ -50,8 +50,8 @@ export default function MenuAppBar() {
   }
 
   return (
-      <div className={classes.root}>
-        {/*
+    <div className={classes.root}>
+      {/*
         <FormGroup>
                 <FormControlLabel
                     control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
@@ -59,47 +59,47 @@ export default function MenuAppBar() {
                 />
             </FormGroup>
              */}
-        <AppBar position="static">
-          <Toolbar>
-            {/*   <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+      <AppBar position="static">
+        <Toolbar>
+          {/*   <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                         <MenuIcon />
                     </IconButton> */}
-            <Typography variant="h5" className={classes.title}>
-              人像识别系统
+          <Typography variant="h5" className={classes.title}>
+            人像识别系统
             </Typography>
-            {auth && (
-                <div>
-                  <IconButton
-                      aria-label="account of current user"
-                      aria-controls="menu-appbar"
-                      aria-haspopup="true"
-                      onClick={handleMenu}
-                      color="inherit"
-                  >
-                    <AccountCircle/>
-                  </IconButton>
-                  <Menu
-                      id="menu-appbar"
-                      anchorEl={anchorEl}
-                      anchorOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                      keepMounted
-                      transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'right',
-                      }}
-                      open={open}
-                      onClose={handleClose}
-                  >
-                    <MenuItem onClick={handleClose}>账户信息</MenuItem>
-                    <MenuItem onClick={handleClose}>退出登录</MenuItem>
-                  </Menu>
-                </div>
-            )}
-          </Toolbar>
-        </AppBar>
-      </div>
+          {auth && (
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem onClick={handleClose}>账户信息</MenuItem>
+                <MenuItem onClick={handleClose}>退出登录</MenuItem>
+              </Menu>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }

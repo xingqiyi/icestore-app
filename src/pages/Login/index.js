@@ -10,22 +10,22 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import {withRouter, Redirect} from 'react-router';
+import { withRouter, Redirect } from 'react-router';
 import stores from './../../stores'
 
 function Copyright() {
   return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://127.0.0.1/">
-          Website
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://127.0.0.1/">
+        Website
         </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
 }
 
@@ -58,21 +58,25 @@ const Login = (props) => {
   const classes = useStyles();
 
   const user = stores.useStore('user')
-  const {isLogin, login, loading} = user;
+  const { isLogin, loading } = stores.getState('user');
 
   const loginHandler = () => {
 
-    const isL = login(islog => {
+    // const isL = user.login(islog => {
+    //   islog && props.history.push('/admin/singlequery')
+    // });
 
-      islog && props.history.push('/admin/singlequery')
+    user.login();
+    // user.login2();
 
-    });
+    // props.history.push('/admin/singlequery')
 
 
     // props.history.push('/admin/a')
 
 
-    return false;
+    // return false;
+
     //
     // if (isL) {
     //   this.props.history.push('/admin/a')
@@ -95,95 +99,95 @@ const Login = (props) => {
   // }
 
   return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline/>
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon/>
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            人像识别系统
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          人像识别系统
           </Typography>
 
 
-          <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
 
-              disabled={loading}
+          disabled={loading}
 
-              onClick={loginHandler}
-          >
-            {loading ? "登陆中..." : '登 录'}
-          </Button>
-
-
-          {/*<form className={classes.form} noValidate onSubmit={loginHandler}>*/}
-          {/*<TextField*/}
-          {/*variant="outlined"*/}
-          {/*margin="normal"*/}
-          {/*required*/}
-          {/*fullWidth*/}
-          {/*id="email"*/}
-          {/*label="用户名"*/}
-          {/*name="email"*/}
-          {/*autoComplete="email"*/}
-          {/*autoFocus*/}
-          {/*/>*/}
-          {/*<TextField*/}
-          {/*variant="outlined"*/}
-          {/*margin="normal"*/}
-          {/*required*/}
-          {/*fullWidth*/}
-          {/*name="password"*/}
-          {/*label="密码"*/}
-          {/*type="password"*/}
-          {/*id="password"*/}
-          {/*autoComplete="current-password"*/}
-          {/*/>*/}
-
-          {/*<FormControlLabel*/}
-          {/*control={<Checkbox value="remember" color="primary"/>}*/}
-          {/*label="记住我"*/}
-          {/*/>*/}
-
-          {/*<Button*/}
-          {/*type="submit"*/}
-          {/*fullWidth*/}
-          {/*variant="contained"*/}
-          {/*color="primary"*/}
-          {/*className={classes.submit}*/}
+          onClick={loginHandler}
+        >
+          {loading ? "登陆中..." : '登 录'}
+        </Button>
 
 
-          {/*>*/}
-          {/*登 录*/}
-          {/*</Button>*/}
+        {/*<form className={classes.form} noValidate onSubmit={loginHandler}>*/}
+        {/*<TextField*/}
+        {/*variant="outlined"*/}
+        {/*margin="normal"*/}
+        {/*required*/}
+        {/*fullWidth*/}
+        {/*id="email"*/}
+        {/*label="用户名"*/}
+        {/*name="email"*/}
+        {/*autoComplete="email"*/}
+        {/*autoFocus*/}
+        {/*/>*/}
+        {/*<TextField*/}
+        {/*variant="outlined"*/}
+        {/*margin="normal"*/}
+        {/*required*/}
+        {/*fullWidth*/}
+        {/*name="password"*/}
+        {/*label="密码"*/}
+        {/*type="password"*/}
+        {/*id="password"*/}
+        {/*autoComplete="current-password"*/}
+        {/*/>*/}
 
-          {/*/!*    <Grid container>*/}
-          {/*<Grid item xs>*/}
-          {/*<Link href="#" variant="body2">*/}
-          {/*Forgot password?*/}
-          {/*</Link>*/}
-          {/*</Grid>*/}
-          {/*<Grid item>*/}
-          {/*<Link href="#" variant="body2">*/}
-          {/*{"Don't have an account? Sign Up"}*/}
-          {/*</Link>*/}
-          {/*</Grid>*/}
-          {/*</Grid>*!/*/}
+        {/*<FormControlLabel*/}
+        {/*control={<Checkbox value="remember" color="primary"/>}*/}
+        {/*label="记住我"*/}
+        {/*/>*/}
+
+        {/*<Button*/}
+        {/*type="submit"*/}
+        {/*fullWidth*/}
+        {/*variant="contained"*/}
+        {/*color="primary"*/}
+        {/*className={classes.submit}*/}
 
 
-          {/*</form>*/}
+        {/*>*/}
+        {/*登 录*/}
+        {/*</Button>*/}
+
+        {/*/!*    <Grid container>*/}
+        {/*<Grid item xs>*/}
+        {/*<Link href="#" variant="body2">*/}
+        {/*Forgot password?*/}
+        {/*</Link>*/}
+        {/*</Grid>*/}
+        {/*<Grid item>*/}
+        {/*<Link href="#" variant="body2">*/}
+        {/*{"Don't have an account? Sign Up"}*/}
+        {/*</Link>*/}
+        {/*</Grid>*/}
+        {/*</Grid>*!/*/}
 
 
-        </div>
-        <Box mt={8}>
-          <Copyright/>
-        </Box>
-      </Container>
+        {/*</form>*/}
+
+
+      </div>
+      <Box mt={8}>
+        <Copyright />
+      </Box>
+    </Container>
   );
 }
 
