@@ -1,0 +1,19 @@
+{
+    "exclude": [
+        "node_modules"
+    ],
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "stores": [
+                "./src/stores"
+            ],
+            "pages/*": [
+                "./src/pages/*"
+            ],
+            "components/*": [
+                "./src/components/*"
+            ]
+        }
+    }
+}

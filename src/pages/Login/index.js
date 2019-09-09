@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import { withRouter, Redirect } from 'react-router';
-import stores from './../../stores'
+import stores from '@stores'
 
 function Copyright() {
   return (
@@ -61,37 +61,9 @@ const Login = (props) => {
   const { isLogin, loading } = stores.getState('user');
 
   const loginHandler = () => {
-
-    // const isL = user.login(islog => {
-    //   islog && props.history.push('/admin/singlequery')
-    // });
-
     user.login();
     // user.login2();
-
-    // props.history.push('/admin/singlequery')
-
-
     // props.history.push('/admin/a')
-
-
-    // return false;
-
-    //
-    // if (isL) {
-    //   this.props.history.push('/admin/a')
-    // }
-
-    // this.props.history.push('/admin/a')
-
-    // login().then(
-    //     isL => {
-    //       console.log(isL)
-    //       this.props.history.push('/admin/a')
-    //     }
-    // )
-
-
   }
 
   // if (isLogin) {

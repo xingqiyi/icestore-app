@@ -11,9 +11,14 @@ export default {
     this.loading = true;
 
     this.isLogin = await new Promise(resolve =>
-      setTimeout(() => {
-        resolve(true)
-      }, 1500)
+        setTimeout(() => {
+
+
+          localStorage.setItem('u_id', 'asdf')
+          resolve(true)
+
+
+        }, 1500)
     )
 
     this.loading = false;
@@ -38,26 +43,27 @@ export default {
   // },
 
   async logout() {
+    localStorage.removeItem('u_id')
     this.isLogin = false;
   },
 
   async refresh() {
     this.dataSource = await new Promise(resolve =>
-      setTimeout(() => {
-        this.inited = true;
-        resolve([
-          {
-            name: "react"
-          },
-          {
-            name: "vue",
-            done: true
-          },
-          {
-            name: "angular"
-          }
-        ]);
-      }, 1000)
+        setTimeout(() => {
+          this.inited = true;
+          resolve([
+            {
+              name: "react"
+            },
+            {
+              name: "vue",
+              done: true
+            },
+            {
+              name: "angular"
+            }
+          ]);
+        }, 1000)
     );
   },
   add(todo) {
@@ -65,7 +71,7 @@ export default {
   },
   remove(specifiedIndex) {
     this.dataSource = this.dataSource.filter(
-      (data, index) => index !== specifiedIndex
+        (data, index) => index !== specifiedIndex
     );
   },
   toggle(index) {

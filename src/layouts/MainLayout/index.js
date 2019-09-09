@@ -3,16 +3,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 import { Button, Paper, Tabs, Tab, Typography, Box, } from '@material-ui/core';
 
-import Header from "../../components/Header";
+import Header from "@components/Header";
 import { Route, Link, Redirect, BrowserRouter as Router } from "react-router-dom";
-import DataFetch from "../../pages/DataFetch";
-import CustomDataFetch from "../../pages/CustomDataFetch";
-import ReducerDataFetch from "../../pages/ReducerDataFetch";
-import TableList from "../../pages/TableList";
-import Todo from "../../pages/Todo";
-import FilterList from "../../pages/FilterList";
 
-import SingleQueryList from "../../pages/SingleQueryList";
+import DataFetch from "@pages/DataFetch";
+import CustomDataFetch from "@pages/CustomDataFetch";
+import ReducerDataFetch from "@pages/ReducerDataFetch";
+import TableList from "@pages/TableList";
+import Todo from "@pages/Todo";
+import FilterList from "@pages/FilterList";
+import SingleQueryList from "@pages/SingleQueryList";
+import DetailList from "@pages/DetailList";
+
 
 
 const useStyles = makeStyles({
@@ -116,6 +118,10 @@ export default function CenteredTabs({ match }) {
         <Route path='/admin/singlequery' exact component={SingleQueryList} />
 
         <Route path="/admin/multiquery" component={CustomDataFetch} />
+
+        <Route path="/admin/detail" component={DetailList} />
+
+
 
         <Route path='/admin/c' component={ReducerDataFetch} />
         <Route path='/admin/list' component={TableList} />
