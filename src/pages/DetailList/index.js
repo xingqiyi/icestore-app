@@ -1,12 +1,17 @@
 import React from 'react'
 import List from './components/List'
-import Filter from './components/Filter'
+import Detail from './components/Detail'
+
+import {Card } from 'antd'
 
 const FilterList = () => {
 
     return (
         <div>
-            <Filter></Filter>
+          <Card>
+            <Detail></Detail>
+
+          </Card>
 
             <List></List>
 

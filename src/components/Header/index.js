@@ -46,8 +46,14 @@ export default function MenuAppBar() {
 
   function handleClose() {
     setAnchorEl(null);
+  }
+
+  function handleLogout() {
+    setAnchorEl(null);
     logout();
   }
+
+
 
   return (
     <div className={classes.root}>
@@ -96,7 +102,7 @@ export default function MenuAppBar() {
 
                 <MenuItem onClick={handleClose}>账户信息</MenuItem>
 
-                <MenuItem onClick={handleClose}>退出登录</MenuItem>
+                <MenuItem onClick={handleLogout}>退出登录</MenuItem>
               </Menu>
             </div>
           )}

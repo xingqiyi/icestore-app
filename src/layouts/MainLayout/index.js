@@ -6,13 +6,18 @@ import { Button, Paper, Tabs, Tab, Typography, Box, } from '@material-ui/core';
 import Header from "@components/Header";
 import { Route, Link, Redirect, BrowserRouter as Router } from "react-router-dom";
 
-import DataFetch from "@pages/DataFetch";
-import CustomDataFetch from "@pages/CustomDataFetch";
-import ReducerDataFetch from "@pages/ReducerDataFetch";
-import TableList from "@pages/TableList";
-import Todo from "@pages/Todo";
-import FilterList from "@pages/FilterList";
+// import DataFetch from "@pages/DataFetch";
+// import CustomDataFetch from "@pages/CustomDataFetch";
+// import ReducerDataFetch from "@pages/ReducerDataFetch";
+// import TableList from "@pages/TableList";
+// import Todo from "@pages/Todo";
+// import FilterList from "@pages/FilterList";
+
+
 import SingleQueryList from "@pages/SingleQueryList";
+import MultiQueryList from "@pages/MultiQueryList";
+import TagManagement from "@pages/TagManagement";
+
 import DetailList from "@pages/DetailList";
 
 
@@ -61,7 +66,7 @@ export default function CenteredTabs({ match }) {
   ));
 
   const CollisionLink4 = React.forwardRef((props, ref) => (
-    <Link innerRef={ref} to="/admin/tablelist" {...props} />
+    <Link innerRef={ref} to="/admin/tag" {...props} />
   ));
 
 
@@ -82,7 +87,10 @@ export default function CenteredTabs({ match }) {
 
             <Tab label="单点查询" component={CollisionLink} />
             <Tab label="组合查询" component={CollisionLink2} />
-            <Tab label="标签统计" component={CollisionLink3} />
+
+            {/*<Tab label="标签统计" component={CollisionLink3} />*/}
+
+
             <Tab label="标签运维" component={CollisionLink4} />
 
 
@@ -117,16 +125,14 @@ export default function CenteredTabs({ match }) {
 
         <Route path='/admin/singlequery' exact component={SingleQueryList} />
 
-        <Route path="/admin/multiquery" component={CustomDataFetch} />
+        <Route path="/admin/multiquery" component={MultiQueryList} />
 
         <Route path="/admin/detail" component={DetailList} />
 
+        <Route path="/admin/tag" component={TagManagement} />
 
 
-        <Route path='/admin/c' component={ReducerDataFetch} />
-        <Route path='/admin/list' component={TableList} />
-        <Route path='/admin/todo' component={Todo} />
-        <Route path='/admin/tablelist' component={FilterList} />
+
 
       </main>
 

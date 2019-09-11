@@ -82,77 +82,70 @@ const Login = (props) => {
           </Typography>
 
 
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-
-          disabled={loading}
-
-          onClick={loginHandler}
-        >
-          {loading ? "登陆中..." : '登 录'}
-        </Button>
 
 
-        {/*<form className={classes.form} noValidate onSubmit={loginHandler}>*/}
-        {/*<TextField*/}
-        {/*variant="outlined"*/}
-        {/*margin="normal"*/}
-        {/*required*/}
-        {/*fullWidth*/}
-        {/*id="email"*/}
-        {/*label="用户名"*/}
-        {/*name="email"*/}
-        {/*autoComplete="email"*/}
-        {/*autoFocus*/}
-        {/*/>*/}
-        {/*<TextField*/}
-        {/*variant="outlined"*/}
-        {/*margin="normal"*/}
-        {/*required*/}
-        {/*fullWidth*/}
-        {/*name="password"*/}
-        {/*label="密码"*/}
-        {/*type="password"*/}
-        {/*id="password"*/}
-        {/*autoComplete="current-password"*/}
-        {/*/>*/}
+        <form className={classes.form} noValidate onSubmit={loginHandler}>
+        <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        id="email"
+        label="用户名"
+        name="email"
+        autoComplete="email"
+        autoFocus
+        />
+        <TextField
+        variant="outlined"
+        margin="normal"
+        required
+        fullWidth
+        name="password"
+        label="密码"
+        type="password"
+        id="password"
+        autoComplete="current-password"
+        />
 
-        {/*<FormControlLabel*/}
-        {/*control={<Checkbox value="remember" color="primary"/>}*/}
-        {/*label="记住我"*/}
-        {/*/>*/}
-
-        {/*<Button*/}
-        {/*type="submit"*/}
-        {/*fullWidth*/}
-        {/*variant="contained"*/}
-        {/*color="primary"*/}
-        {/*className={classes.submit}*/}
+        <FormControlLabel
+        control={<Checkbox value="remember" color="primary"/>}
+        label="记住我"
+        />
 
 
-        {/*>*/}
-        {/*登 录*/}
-        {/*</Button>*/}
 
-        {/*/!*    <Grid container>*/}
-        {/*<Grid item xs>*/}
-        {/*<Link href="#" variant="body2">*/}
-        {/*Forgot password?*/}
-        {/*</Link>*/}
-        {/*</Grid>*/}
-        {/*<Grid item>*/}
-        {/*<Link href="#" variant="body2">*/}
-        {/*{"Don't have an account? Sign Up"}*/}
-        {/*</Link>*/}
-        {/*</Grid>*/}
-        {/*</Grid>*!/*/}
+          <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+
+              disabled={loading}
+
+              onClick={loginHandler}
+          >
+            {loading ? "登陆中..." : '登 录'}
+          </Button>
 
 
-        {/*</form>*/}
+
+        {/*    <Grid container>
+        <Grid item xs>
+        <Link href="#" variant="body2">
+        Forgot password?
+        </Link>
+        </Grid>
+        <Grid item>
+        <Link href="#" variant="body2">
+        {"Don't have an account? Sign Up"}
+        </Link>
+        </Grid>
+        </Grid>*/}
+
+
+        </form>
 
 
       </div>

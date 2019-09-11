@@ -26,11 +26,12 @@ let fieldDict = {
   // "create_time": "时间",
   // "update_time": "时间",
 
-  forensic_time: '标签大类',
-  username: 'HASH',
-  imei: '时间',
-  version: '标签小类',
-  phone: '程序名',
+  forensic_time: '标签分类',
+  username: '标签名称',
+  imei: '添加时间',
+
+  // version: '标签小类',
+  // phone: '程序名',
 
   //
   // forensic_number: '案件号',
@@ -50,7 +51,8 @@ let fieldDict = {
 
 const AdvancedSearchForm = (props) => {
 
-  const list = stores.useStore('list')
+  const storeTags = stores.useStore('tags')
+  // const {modalVisible} = stores.getState('tags')
 
   // const handleSubmit = e => {
   //   e.preventDefault();
@@ -64,11 +66,15 @@ const AdvancedSearchForm = (props) => {
     // fields = handleFields(fields)
     // onFilterChange(fields)
 
-    list.filter(fields)
+    storeTags.filter(fields)
   }
 
   const handleReset = () => {
     props.form.resetFields();
+  };
+
+  const handleAdd = () => {
+    storeTags.showModal()
   };
 
 
@@ -88,6 +94,7 @@ const AdvancedSearchForm = (props) => {
             <Form.Item label={fieldDict['forensic_time']}>
               {getFieldDecorator('forensic_time')(
                   <Select showSearch
+                          allowClear
                           onChange={handleChange}>
                     <Option value="jack">J</Option>
                     <Option value="lucy">L</Option>
@@ -117,10 +124,11 @@ const AdvancedSearchForm = (props) => {
             </Form.Item>
           </Col>
 
-          <Col {...ColProps} xl={8} md={8} xs={24}>
+          {/* <Col {...ColProps} xl={8} md={8} xs={24}>
             <Form.Item label={fieldDict['version']}>
               {getFieldDecorator('version')(
                   <Select showSearch
+                          allowClear
                           onChange={handleChange}>
                     <Option value="jack">J</Option>
                     <Option value="lucy">L</Option>
@@ -137,27 +145,26 @@ const AdvancedSearchForm = (props) => {
               )}
             </Form.Item>
           </Col>
-
+    */}
 
           <Col span={8}>
 
-            <Form.Item
-                colon={false}
-                label=' '>
-              <Button
-                  type="primary"
-
-                  style={{marginRight: 16}}
-                  onClick={handleSubmit}
-              >
+            <Form.Item colon={false} label=' '>
+              <Button type="primary"
+                      style={{marginRight: 16}}
+                      onClick={handleSubmit}>
                 查询
               </Button>
               <Button onClick={handleReset}>重置</Button>
 
-
             </Form.Item>
 
+          </Col>
 
+          <Col span={8} offset={8} style={{padding: 0}}>
+            <Form.Item label='' style={{textAlign: 'right', marginRight: '15px'}}>
+              <Button style={{textAlign: 'right', marginRight: 0}} onClick={handleAdd}>添加</Button>
+            </Form.Item>
           </Col>
 
 

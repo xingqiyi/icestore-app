@@ -1,5 +1,6 @@
 import todos from './todos';
 import list from './list';
+import tags from './tags';
 import user from './user';
 
 // import Icestore from 'icestore';
@@ -16,7 +17,7 @@ import logger from '@ice/store-logger';
 const stores = {
   todos,
   list,
-
+  tags,
   user,
 };
 

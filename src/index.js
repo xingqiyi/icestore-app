@@ -8,8 +8,8 @@ import App from './app'
 // import zhCN from 'antd/es/locale/zh_CN';
 // import moment from 'moment';
 
-import 'moment/locale/zh-cn';
-import 'antd/dist/antd.css';
+// import 'moment/locale/zh-cn';
+// import 'antd/dist/antd.css';
 
 // moment.locale('zh-cn');
 

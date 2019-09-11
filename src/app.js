@@ -10,6 +10,16 @@ import './app.css'
 import stores from '@stores'
 import {createBrowserHistory} from 'history';
 
+import 'antd/dist/antd.css';
+
+import {ConfigProvider} from 'antd';
+import zh_CN from 'antd/es/locale-provider/zh_CN';
+
+import moment from 'moment';
+import 'moment/locale/zh-cn';
+
+moment.locale('zh-cn');
+
 
 function App() {
   const customHistory = createBrowserHistory();
@@ -23,7 +33,7 @@ function App() {
   isLogin = isLogin || user_id
 
 
-  return (
+  const appDiv = (
       <Router history={customHistory}>
 
         <Route exact path="/" render={() => (
@@ -54,7 +64,11 @@ function App() {
       </Router>
   );
 
+  return (
+      <ConfigProvider locale={zh_CN}>{appDiv}</ConfigProvider>
+  );
 
 }
+
 
 export default App
